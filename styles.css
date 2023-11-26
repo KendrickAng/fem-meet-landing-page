@@ -114,11 +114,15 @@ img.hero {
     text-align: center;
 }
 
-.introduction>.btn-green {
+.introduction>.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 2rem;
 }
 
-.introduction>.btn-purple {
+.introduction>.buttons>button:not(:first-child) {
     margin-top: 1rem;
 }
 
@@ -181,4 +185,103 @@ img.hero {
 .features>p {
     margin-top: 2rem;
     text-align: center;
+}
+
+.action {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem 4.5rem 1.5rem;
+    height: calc(100vw / 23.4375 * 26.75);
+}
+
+.action>img{
+    background-image: url("./assets/mobile/image-footer.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.action>.veil {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--desaturated-green);
+    z-index: -2;
+}
+
+.action>h1 {
+    text-align: center;
+    color: white;
+    margin: 5.75rem 1.5rem 0 1.5rem;
+}
+
+.action>p {
+    margin: 1.5rem 1.5rem 0 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.action>button{
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+    .introduction {
+        width: 28.5625rem;
+        height: 16.375rem;
+        margin: 4.5rem 9.75rem 0 9.75rem;
+    }
+
+    .introduction>.buttons {
+        flex-direction: row;
+    }
+
+    .introduction>.buttons>button:not(:first-child) {
+        margin: 0 0 0 1rem;
+    }
+
+    .intermission {
+        margin-top: 5rem;
+    }
+
+    .people {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: none;
+        grid-gap: 0.2rem;
+        margin: 1.5rem; 
+    }
+
+    .features {
+        margin: 2.5rem 7.5rem 0 7.5rem;
+        width: 36rem;
+    }
+
+    .action {
+        height: 26.75rem;
+        width: 100%;
+    }
+
+    .action>img{
+        background-image: url("./assets/tablet/image-footer.jpg");
+    }
+
+    .action>h1 {
+        width: 28.5625rem;
+    }
+
+    .action>p {
+        width: 35.8125rem;
+    }
 }
