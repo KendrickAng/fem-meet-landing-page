@@ -7,6 +7,7 @@
     --almost-black: #28283d;
     --almost-white: #fafafa;
     --almost-gray: #87879d;
+    --intermission-circle-height: 3.5rem;
 }
 
 * {
@@ -92,9 +93,25 @@ img.logo {
     margin: 3rem 8rem;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 img.hero {
     width: 26rem;
     height: 9.5rem;
+}
+
+/* TODO: Find a better way to do this */
+img.desktop-hero-left {
+    display: none;
+}
+
+/* TODO: Find a better way to do this */
+img.desktop-hero-right {
+    display: none;
 }
 
 .introduction {
@@ -134,7 +151,11 @@ img.hero {
     margin-top: 4rem;
 }
 
-.intermission>img{
+.intermission.second {
+    margin-bottom: calc(var(--intermission-circle-height) * -0.5);
+}
+
+.intermission>img {
     width: 0.0625rem;
     height: 5.25rem;
 }
@@ -145,10 +166,11 @@ img.hero {
     justify-content: center;
     border: 1px solid rgba(135, 135, 157, 0.25);
     border-radius: 100%;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: var(--intermission-circle-height);
+    height: var(--intermission-circle-height);
     font: 900 1rem/1.625rem 'Red Hat Display', sans-serif;
     color: var(--almost-gray);
+    background: white;
 }
 
 .people {
@@ -159,7 +181,7 @@ img.hero {
     margin: 1.5rem;
 }
 
-.people>img{
+.people>img {
     width: 100%;
     max-height: 100%;
     border-radius: .5rem;
@@ -173,12 +195,12 @@ img.hero {
     margin: 3.5rem 1.5rem 0 1.5rem;
 }
 
-.features>h4{
+.features>h4 {
     text-align: center;
 }
 
-.features>h3{
-    margin-top:1.5rem;
+.features>h3 {
+    margin-top: 1.5rem;
     text-align: center;
 }
 
@@ -197,7 +219,7 @@ img.hero {
     height: calc(100vw / 23.4375 * 26.75);
 }
 
-.action>img{
+.action>img {
     background-image: url("./assets/mobile/image-footer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -232,14 +254,14 @@ img.hero {
     color: white;
 }
 
-.action>button{
+.action>button {
     margin-top: 2rem;
 }
 
-@media screen and (min-width: 375px) and (max-width: 768px) {
+@media screen and (min-width: 375px) {
     .introduction {
-        width: 28.5625rem;
-        height: 16.375rem;
+        max-width: 28.5625rem;
+        max-height: 16.375rem;
         margin: 4.5rem 9.75rem 0 9.75rem;
     }
 
@@ -255,17 +277,18 @@ img.hero {
         margin-top: 5rem;
     }
 
+    /* TODO: Can we do this with flexbox instead? */
     .people {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: none;
         grid-gap: 0.2rem;
-        margin: 1.5rem; 
+        margin: 1.5rem;
     }
 
     .features {
         margin: 2.5rem 7.5rem 0 7.5rem;
-        width: 36rem;
+        max-width: 36rem;
     }
 
     .action {
@@ -273,15 +296,78 @@ img.hero {
         width: 100%;
     }
 
-    .action>img{
+    .action>img {
         background-image: url("./assets/tablet/image-footer.jpg");
     }
 
     .action>h1 {
-        width: 28.5625rem;
+        max-width: 28.5625rem;
     }
 
     .action>p {
-        width: 35.8125rem;
+        max-width: 35.8125rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 3rem 8rem;
+    }
+
+    img.hero {
+        display: none;
+    }
+
+    img.desktop-hero-left {
+        display: block;
+        height: 20rem;
+    }
+
+    img.desktop-hero-right {
+        display: block;
+        height: 20rem;
+    }
+
+    .people {
+        margin: 4.5rem 10rem;
+        grid-gap: 1.5rem;
+    }
+
+    .people>img {
+        height: 15.125rem;
+    }
+
+    .action {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0;
+        margin: 0;
+    }
+
+    .action>img {
+        background-image: url("./assets/desktop/image-footer.jpg");
+        background-size: contain;
+    }
+
+    .action>h1 {
+        max-width: 21.875rem;
+        margin: 0;
+        text-align: start;
+    }
+
+    .action>p {
+        max-width: 21.875rem;
+        margin: 0;
+        text-align: start;
+    }
+
+    .action>button {
+        margin: 0;
     }
 }
